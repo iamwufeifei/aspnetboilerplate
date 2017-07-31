@@ -1,0 +1,13 @@
+using Abp.Dependency;
+/// <summary>
+/// may be user login may not use abpsession ,let GetAuditUserId... can be defined 
+/// </summary>
+namespace Abp.Dapper.Filters.Action
+{
+    public interface IDapperActionFilterBase: ITransientDependency
+    {
+        long? GetAuditUserId();
+        void CheckAndSetId(object entityAsObj);
+        int? GetCurrentTenantIdOrNull();
+    }
+}
